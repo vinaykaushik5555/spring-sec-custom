@@ -1,15 +1,22 @@
 package com.vinay.sec.springmvcsec.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class DemoController {
 
-	@GetMapping("/hello")
+	@GetMapping("/")
 	public String hello() {
-		return "Hello Sprin Security :)";
-		
+		return "hello.html";
+	}
+	@GetMapping("/admin")
+	public String admin() {
+		return "admin.html";
+	}
+	@GetMapping("/user")
+	public String user() {
+		return "user.html";
 	}
 	
 	

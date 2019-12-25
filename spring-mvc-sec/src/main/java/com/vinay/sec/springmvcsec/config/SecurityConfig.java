@@ -9,9 +9,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.httpBasic();
-		http.authorizeRequests().anyRequest().authenticated()
-		;
-	}
+		
+		  http.formLogin();
+		 
+		  http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN").
+		  antMatchers("/user").hasAnyRole("USER","ADMIN").
+		  antMatchers("/").permitAll();
+		 }
+	
+	
 
 }
